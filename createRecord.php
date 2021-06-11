@@ -11,18 +11,13 @@
 		'description' => $_POST["description"]
 	]);
 
-	// Should I output the returned record?
-	// Feels like I ought to have some feedback here at the very least.
-	// Bare minimum a home button, some sort of "success" display, and something showing the created record
-	// Does statement->execute return the new row? I think it does. no it doesn't lol
-	// So i could pass that to another function to format it - that'll be a pretty handy thing to have in general
-
-	$created = $pdo->lastInsertId();
-	echo $created;
-
-
+	// Todo: Make a function to format this properly. Predict I'll get a lot of use out of that one. Just a dump is fine for the time being tho
+	$created = 'ISBN: ' . $_POST["isbn"] . 'Name: ' . $_POST["name"] . 'Description: ' . $_POST["description"]
 
 ?>
-Item created <br>
 
+<p>
+	Item created: <br>
+	<?php echo $created ?>
+</p>
 <a href="index.php">Home</a>
