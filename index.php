@@ -8,6 +8,8 @@
 	<p>testtesttest</p>
 	<a href="createItem.php">Create item</a>
 	<br>
+	<a href="search_isbn.html">Search item</a>
+	<br>
 	<?php
 		require_once "config.php";
 		require_once "dumpBooks.php";

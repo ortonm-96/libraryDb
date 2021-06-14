@@ -1,5 +1,6 @@
 <?php
 	require_once "config.php";
+	require_once "displayRecord.php";
 
 	$sqlInsertStatement = 'INSERT INTO `books` (`isbn`, `name`, `description`) VALUES (:isbn, :name, :description)';
 
@@ -11,8 +12,13 @@
 		'description' => $_POST["description"]
 	]);
 
+	$results = $statement->fetch();
+
 	// Todo: Make a function to format this properly. Predict I'll get a lot of use out of that one. Just a dump is fine for the time being tho
 	$created = 'ISBN: ' . $_POST["isbn"] . 'Name: ' . $_POST["name"] . 'Description: ' . $_POST["description"]
+
+	//$created = formatRecord($results);
+	//$created = "";
 
 ?>
 
