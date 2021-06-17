@@ -1,29 +1,22 @@
+<?php include "templates/bootstrapReqs.html";?>
 <?php
-	require_once "config.php";
-	require_once "displayRecord.php";
+	require_once "functions/create.php";
+	require_once "functions/displayRecord.php";
 
-	$sqlInsertStatement = 'INSERT INTO `books` (`isbn`, `name`, `description`) VALUES (:isbn, :name, :description)';
+	postRequest_create($_POST);
 
-
-	$statement = $pdo->prepare($sqlInsertStatement);
-	$statement->execute([
-		'isbn' => $_POST["isbn"],
-		'name' => $_POST["name"],
-		'description' => $_POST["description"]
-	]);
-
-	$results = $statement->fetch();
-
-	// Todo: Make a function to format this properly. Predict I'll get a lot of use out of that one. Just a dump is fine for the time being tho
-	$created = 'ISBN: ' . $_POST["isbn"] . 'Name: ' . $_POST["name"] . 'Description: ' . $_POST["description"]
-
-	//$created = formatRecord($results);
-	//$created = "";
-
+	// Formats the post request as a table (generating feedback of the expected output)
+	// Cheats a little bit - ideally I should have the feedback be the *actual* record as it is in the tables. Will add this at a later date
+	$created = formatRecordsAsTable([$_POST], "books", "isbn");
+	/*
+	$createdId = $pdo->prepare("SELECT * FROM books WHERE isbn=?")->execute($lastInserted);
+	$createdFetch = $createdId->fetchAll();
+	$created = formatRecordsAsTable($createdFetch);
+	*/
 ?>
 
 <p>
 	Item created: <br>
 	<?php echo $created ?>
 </p>
-<a href="index.php">Home</a>
+<a role="button" class="btn btn-light" href="index.php">Home</a>

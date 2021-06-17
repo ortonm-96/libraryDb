@@ -1,16 +1,16 @@
+<?php include "templates/bootstrapReqs.html";?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>hello world</title>
+	<title>Create Item</title>
 </head>
 <body>
 	<p>Create item</p>
-	<a href="index.php">Back</a>
+	<a role="button" class="btn btn-light" href="index.php">Back</a>
 
 	<!-- Todo:
-		Find out how to restrict the form so that only numbers can be inserted into the isbn
-			Or possibly do some sort of formatting on it to allow the user to input it w/ the dashes and then strip them out after?
+		Add validation to force the ISBN to be a number
 	-->
 	<form action="createRecord.php" method="post">
 		ISBN: <input type="text" name="isbn"><br>

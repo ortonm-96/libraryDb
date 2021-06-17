@@ -1,18 +1,22 @@
+<?php include "templates/bootstrapReqs.html";?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>hello world</title>
+	<title>Home</title>
 </head>
 <body>
-	<p>testtesttest</p>
-	<a href="createItem.php">Create item</a>
+	<a href="createItem.php" role="button" class="btn btn-light">Create item</a>
 	<br>
-	<a href="search_isbn.html">Search item</a>
+	<a href="search_isbn.php" role="button" class="btn btn-light">Search item</a>
 	<br>
 	<?php
-		require_once "config.php";
-		require_once "dumpBooks.php";
+		require_once "functions/showtable_books.php";
+		require_once "functions/displayRecord.php";
+
+		$booksTable = getBooks();
+		$booksTableFormatted = formatRecordsAsTable($booksTable, "books", "isbn");
+		echo $booksTableFormatted;
 	?>
 </body>
 </html>
