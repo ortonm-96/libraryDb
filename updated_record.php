@@ -4,7 +4,7 @@
 
 	$results = postRequest_Update_Books($_POST);
 
-	header("Refresh: 1; URL= {$_SERVER["HTTP_REFERER"]}");
+	header("Refresh: 1.5; URL= {$_SERVER["HTTP_REFERER"]}");
 ?>
 <p>
 	Record updated sucesfully
