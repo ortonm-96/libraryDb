@@ -1,16 +1,13 @@
 <?php include "templates/bootstrapReqs.html";?>
 <?php
 	require_once "functions/update.php";
-	require_once "functions/displayRecord.php";
 
-	print_r($_POST);
 	$results = postRequest_Update_Books($_POST);
-	print_r($results);
 
-	echo "updated record placeholder";
-
-	//$resultsFormatted = formatRecordsAsTable($results);
-
+	header("Refresh: 1; URL= {$_SERVER["HTTP_REFERER"]}");
 ?>
-
-<a href="index.php" role="button" class="btn btn-light">Back</a>
+<p>
+	Record updated sucesfully
+</p>
+<!--<a href="index.php" role="button" class="btn btn-light">Back</a> Have a button here pointing to the last page, in case the redirect doesn't work? Can I access $_SERVER["HTTP_REFERER"] outside of the php tags?-->
+<a href="index.php" role="button" class="btn btn-light">Home</a>
