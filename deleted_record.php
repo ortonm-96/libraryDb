@@ -1,16 +1,14 @@
 <?php include "templates/bootstrapReqs.html";?>
 <?php
 	require_once "functions/delete.php";
-	require_once "functions/displayRecord.php";
-
-	print_r($_POST);
 	$results = postRequest_Delete_fromBooks($_POST);
-	print_r($results);
-
-	echo "deleted record placeholder";
-
+	
+	header("Refresh: 1.5; URL=index.php");
 	//$resultsFormatted = formatRecordsAsTable($results);
 
 ?>
+<p>
+	Record deleted
+</p>
 
-<a href="index.php" role="button" class="btn btn-light">Back</a>
+<a href="index.php" role="button" class="btn btn-light">Home</a>
