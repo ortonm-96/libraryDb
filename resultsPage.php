@@ -7,6 +7,12 @@
 	<title>Search Results</title>
 </head>
 <body>
+
+<div class="container float-left border rounded">
+	<p>Search results</p>
+	<a role="button" class="btn btn-light" href="index.php">Home</a>
+</div>
+
 <div class="container-fluid float-left border rounded">
 	<?php
 		require_once "functions/displayRecord.php";
@@ -24,9 +30,6 @@
 
 		
 	?>
-</div>
-<div class="container float-left border rounded">
-<a role="button" class="btn btn-light" href="index.php">Home</a>
 </div>
 </body>
 

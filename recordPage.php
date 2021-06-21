@@ -7,6 +7,11 @@
 	<title>Record Page</title>
 </head>
 <body>
+	<div class="container float-left">
+		<p>Record page</p>
+		<a href="index.php" role="button" class="btn btn-light">Home</a>
+	</div>
+
 	<div class="container float-left border rounded">
 	<?php
 		require_once "functions/displayRecord.php";
@@ -17,10 +22,6 @@
 		echo $resultsFormatted;
 
 	?>
-	</div>
-
-	<div class="container float-left">
-	<a href="index.php" role="button" class="btn btn-light">Home</a>
 	</div>
 
 </body>
