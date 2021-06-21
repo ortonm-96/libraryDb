@@ -7,10 +7,6 @@
 	<title>Home</title>
 </head>
 <body>
-	<a href="createItem.php" role="button" class="btn btn-light">Create item</a>
-	<br>
-	<a href="search_isbn.php" role="button" class="btn btn-light">Search item</a>
-	<br>
 	<?php
 		require_once "functions/showtable_books.php";
 		require_once "functions/displayRecord.php";
