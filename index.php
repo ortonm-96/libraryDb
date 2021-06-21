@@ -7,6 +7,7 @@
 	<title>Home</title>
 </head>
 <body>
+	<div class="container float-left border rounded">
 	<?php
 		require_once "functions/showtable_books.php";
 		require_once "functions/displayRecord.php";
@@ -15,6 +16,7 @@
 		$booksTableFormatted = formatRecordsAsTable($booksTable, "books", "isbn");
 		echo $booksTableFormatted;
 	?>
+	</div>
 </body>
 <?php include "templates/bootstrapScript.html";?>
 </html>

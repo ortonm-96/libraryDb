@@ -1,5 +1,6 @@
 <?php include "templates/bootstrapReqs.html";?>
 <?php include "templates/navbar.html";?>
+
 <?php
 	require_once "functions/create.php";
 	require_once "functions/displayRecord.php";
@@ -15,10 +16,11 @@
 	$created = formatRecordsAsTable($createdFetch);
 	*/
 ?>
-
+<div class="container float-left border rounded">
 <p>
 	Item created: <br>
 	<?php echo $created ?>
 </p>
 <a role="button" class="btn btn-light" href="index.php">Home</a>
+</div>
 <?php include "templates/bootstrapScript.html";?>

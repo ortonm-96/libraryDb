@@ -7,7 +7,7 @@
 	<title>Search Results</title>
 </head>
 <body>
-
+<div class="container float-left border rounded">
 	<?php
 		require_once "functions/displayRecord.php";
 		require_once "functions/query.php";
@@ -24,8 +24,11 @@
 
 		
 	?>
-
-</body>
+</div>
+<div class="container float-left border rounded">
 <a role="button" class="btn btn-light" href="index.php">Home</a>
+</div>
+</body>
+
 <?php include "templates/bootstrapScript.html";?>
 </html>

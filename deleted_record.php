@@ -8,9 +8,11 @@
 	//$resultsFormatted = formatRecordsAsTable($results);
 
 ?>
+<div class="container float-left border rounded">
 <p>
 	Record deleted
 </p>
 
 <a href="index.php" role="button" class="btn btn-light">Home</a>
+</div>
 <?php include "templates/bootstrapScript.html";?>

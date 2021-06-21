@@ -7,15 +7,21 @@
 	<title>Search for record</title>
 </head>
 <body>
-	<p>Search by ISBN</p>
-	<a href="index.php" role="button" class="btn btn-light">Back</a>
 
+	<div class="float-left container border rounded">
+
+	<p>Search for record</p>
+	<a href="index.php" role="button" class="btn btn-light">Back</a>
+	</div>
+	<div class="float-left container border rounded">
 	<form action="resultsPage.php" method="get">
 		ISBN: <input type="text" name="isbn"><br>
 		Name: <input type="text" name="name"><br>
 		<input type="hidden" name="table" value="books">
 		<input type="submit" value="Submit" class="btn btn-light">
 	</form>
+	</div>
+
 </body>
 <?php include "templates/bootstrapScript.html";?>
 </html>
