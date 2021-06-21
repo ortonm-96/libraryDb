@@ -13,18 +13,15 @@
 	</div>
 	
 	<div class="float-left container border rounded">
-	<!-- Todo:
-		Add validation to force the ISBN to be a number
-	-->
 	<form action="createRecord.php" method="post">
 		<div class="my-2">
 		<label for="isbn" class="form-label">ISBN:</label>
-		<input type="text" name="isbn" id="isbn" class="form-control">
+		<input type="number" name="isbn" id="isbn" class="form-control" required>
 		</div>
 
 		<div class="my-2">
 		<label for="name" class="form-label">Name:</label>
-		<input type="text" name="name" id="name" class="form-control">
+		<input type="text" name="name" id="name" class="form-control" required>
 		</div>
 
 		<div class="my-2">
