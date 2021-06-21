@@ -7,7 +7,7 @@
 	<title>Home</title>
 </head>
 <body>
-	<div class="container float-left border rounded">
+	<div class="container-fluid float-left border rounded">
 	<?php
 		require_once "functions/showtable_books.php";
 		require_once "functions/displayRecord.php";

@@ -16,7 +16,7 @@
 	$created = formatRecordsAsTable($createdFetch);
 	*/
 ?>
-<div class="container float-left border rounded">
+<div class="container-fluid float-left border rounded">
 <p>
 	Item created: <br>
 	<?php echo $created ?>
