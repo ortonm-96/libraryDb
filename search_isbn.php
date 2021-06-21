@@ -12,6 +12,7 @@
 
 	<form action="resultsPage.php" method="get">
 		ISBN: <input type="text" name="isbn"><br>
+		Name: <input type="text" name="name"><br>
 		<input type="hidden" name="table" value="books">
 		<input type="submit" value="Submit" class="btn btn-light">
 	</form>

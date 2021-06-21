@@ -8,11 +8,14 @@ function getRequest_query($getRequest){
 
 	$sqlStatement = "SELECT * FROM {$tableName} WHERE ";
 
+	$queryFields = [];
+
 	foreach($getRequest as $key=>$value){
-		$sqlStatement .= "{$key} = '{$value}'";
-		// Insert an AND here as well. Not necessary on the final iteration of this loop - what's php's way of checking that?
-		// Python's -1 notation probably won't work here. Something involving getRequest.length()?
+		$statementAddition = "{$key} LIKE '%{$value}%'";
+		array_push($queryFields, $statementAddition);
 	}
+
+	$sqlStatement .= implode(" AND ", $queryFields);
 
 	$statement = $pdo->prepare($sqlStatement);
 	$statement->execute();
