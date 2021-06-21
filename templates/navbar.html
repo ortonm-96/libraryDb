@@ -7,11 +7,18 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" href="createItem.php">Create item</a>
         <a class="nav-link" href="search_isbn.php">Search item</a>
       </div>
+
+      <form class="d-flex" action="resultsPage.php" method="get">
+        <input class="form-control me-2" type="search" placeholder="Search by ISBN" aria-label="Search" name="isbn">
+        <input type="hidden" name="table" value="books">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
     </div>
 
   </div>
