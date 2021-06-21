@@ -13,8 +13,16 @@
 		require_once "functions/query.php";
 
 		$queryResults = getRequest_query($_GET);
-		$resultsFormatted = formatRecordsAsTable($queryResults, "books", "isbn");
-		echo $resultsFormatted;
+
+		if (count($queryResults) == 1){
+			$recordPageParams = "table=books&isbn={$queryResults[0]["isbn"]}";
+			header("Refresh: 0.1; URL=recordPage.php?{$recordPageParams}");
+		} else{
+			$resultsFormatted = formatRecordsAsTable($queryResults, "books", "isbn");
+			echo $resultsFormatted;
+		}
+
+		
 	?>
 
 </body>
