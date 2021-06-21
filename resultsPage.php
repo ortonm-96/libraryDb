@@ -1,4 +1,5 @@
 <?php include "templates/bootstrapReqs.html";?>
+<?php include "templates/navbar.html";?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -1,4 +1,5 @@
 <?php include "templates/bootstrapReqs.html";?>
+<?php include "templates/navbar.html";?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 	<form action="resultsPage.php" method="get">
 		ISBN: <input type="text" name="isbn"><br>
 		<input type="hidden" name="table" value="books">
-		<input type="submit" value="Submit">
+		<input type="submit" value="Submit" class="btn btn-light">
 	</form>
 </body>
 </html>
