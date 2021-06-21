@@ -21,3 +21,4 @@
 	<?php echo $created ?>
 </p>
 <a role="button" class="btn btn-light" href="index.php">Home</a>
+<?php include "templates/bootstrapScript.html";?>

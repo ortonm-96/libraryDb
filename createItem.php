@@ -20,4 +20,5 @@
 		<input type="submit" value="Submit" class="btn btn-light">
 	</form>
 </body>
+<?php include "templates/bootstrapScript.html";?>
 </html>

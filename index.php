@@ -20,4 +20,5 @@
 		echo $booksTableFormatted;
 	?>
 </body>
+<?php include "templates/bootstrapScript.html";?>
 </html>

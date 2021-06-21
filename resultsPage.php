@@ -19,4 +19,5 @@
 
 </body>
 <a role="button" class="btn btn-light" href="index.php">Home</a>
+<?php include "templates/bootstrapScript.html";?>
 </html>

@@ -13,3 +13,4 @@
 </p>
 
 <a href="index.php" role="button" class="btn btn-light">Home</a>
+<?php include "templates/bootstrapScript.html";?>

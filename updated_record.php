@@ -12,3 +12,4 @@
 </p>
 <!--<a href="index.php" role="button" class="btn btn-light">Back</a> Have a button here pointing to the last page, in case the redirect doesn't work? Can I access $_SERVER["HTTP_REFERER"] outside of the php tags?-->
 <a href="index.php" role="button" class="btn btn-light">Home</a>
+<?php include "templates/bootstrapScript.html";?>
