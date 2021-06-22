@@ -89,6 +89,16 @@ function formatRecordForPage_inputs($record){
 	$pageHtml .= "<button type=\"submit\" role=\"button\" class=\"btn btn-light\" formaction=\"updated_record.php\">Update</button>";
 	$pageHtml .= "<button type=\"submit\" role=\"button\" class=\"btn btn-light\" formaction=\"deleted_record.php\">Delete</button>";
 
+	if(isset($record["loan_date"])){
+		$loanDisabled = " disabled";
+		$returnDisabled = "";
+	} else {
+		$loanDisabled = "";
+		$returnDisabled = " disabled";
+	}
+	$pageHtml .= "<button type=\"submit\" role=\"button\" class=\"btn btn-light\" formaction=\"loanBook.php\"{$loanDisabled}>Loan book</button>";
+	$pageHtml .= "<button type=\"submit\" role=\"button\" class=\"btn btn-light\" formaction=\"returnBook.php\"{$returnDisabled}>Return book</button>";
+
 	// Wrap everything in <form> tags
 	$pageHtml = wrapStringInHtmlTag($pageHtml, "form", "method=\"post\"");
 
