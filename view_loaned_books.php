@@ -13,7 +13,8 @@
 		require_once "functions/displayRecord.php";
 
 		$booksTable = getBooks_loaned();
-		$booksTableFormatted = formatRecordsAsTable($booksTable, "books", "isbn");
+		$headerRow = ["isbn", "name", "description", "loaned_by_user_id"];
+		$booksTableFormatted = formatRecordsAsTable($booksTable, $headerRow, "books", "isbn");
 		echo $booksTableFormatted;
 	?>
 	</div>

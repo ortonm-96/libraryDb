@@ -10,7 +10,7 @@
  precondition: output from a PDO fetchall
  postcondition: html formatted records
 */
-function formatRecordsAsTable($records, $tableName="", $primaryKey=""){
+function formatRecordsAsTable($records, $headerRow, $tableName="", $primaryKey=""){
 	// Format the records returned by fetchAll() as a table.
 	// Generate a header row, then generate a row for the item. Finally, wrap it all in table tags
 
@@ -18,7 +18,7 @@ function formatRecordsAsTable($records, $tableName="", $primaryKey=""){
 	// But can also be used without that, if necessary
 
 	// Placeholder header row - Take this as an argument later
-	$headerRow = ["isbn", "name", "description"];
+	//$headerRow = ["isbn", "name", "description"];
 
 	$headerHtml = "";
 
