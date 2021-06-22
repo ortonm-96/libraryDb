@@ -15,7 +15,7 @@ function getBooks(){
 function getBooks_loaned(){
 	require_once "functions/config.php";
 
-	$sqlStatement = 'SELECT * FROM books WHERE loan_date IS NOT NULL';
+	$sqlStatement = 'SELECT * FROM books INNER JOIN users ON books.loaned_by_user_id = users.user_id WHERE loan_date IS NOT NULL';
 
 	$statement = $pdo->prepare($sqlStatement);
 	$statement->execute();
@@ -27,9 +27,7 @@ function getBooks_loaned(){
 function getBooks_overdue(){
 	require_once "functions/config.php";
 	$currentTimestamp = date('Y-m-d H:i:s');
-	// Need to compare currentTimestamp to due_date. What's SQL's syntax for that?
-
-	$sqlStatement = 'SELECT * FROM books WHERE due_date < "'.$currentTimestamp.'"';
+	$sqlStatement = 'SELECT * FROM books INNER JOIN users ON books.loaned_by_user_id = users.user_id WHERE due_date < "'.$currentTimestamp.'"';
 
 	$statement = $pdo->prepare($sqlStatement);
 	$statement->execute();
