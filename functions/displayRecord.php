@@ -17,9 +17,6 @@ function formatRecordsAsTable($records, $headerRow, $tableName="", $primaryKey="
 	// If a table name and primary key are declared, also generate links to the record's individual page.
 	// But can also be used without that, if necessary
 
-	// Placeholder header row - Take this as an argument later
-	//$headerRow = ["isbn", "name", "description"];
-
 	$headerHtml = "";
 
 	foreach ($headerRow as $header){
