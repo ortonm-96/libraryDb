@@ -24,4 +24,18 @@ function getBooks_loaned(){
 	return $tableOutput;
 }
 
+function getBooks_overdue(){
+	require_once "functions/config.php";
+	$currentTimestamp = date('Y-m-d H:i:s');
+	// Need to compare currentTimestamp to due_date. What's SQL's syntax for that?
+
+	$sqlStatement = 'SELECT * FROM books WHERE due_date < "'.$currentTimestamp.'"';
+
+	$statement = $pdo->prepare($sqlStatement);
+	$statement->execute();
+	$tableOutput = $statement->fetchAll();
+
+	return $tableOutput;
+}
+
 ?>
