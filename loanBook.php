@@ -4,7 +4,7 @@
 	require_once "functions/update.php";
 
 	$currentTimestamp = date('Y-m-d H:i:s');
-	$loanDateRequestInfo = array("isbn"=>$_POST["isbn"], "loan_date"=>$currentTimestamp, "loaned_by_user_id"=>1);
+	$loanDateRequestInfo = array("id"=>$_POST["id"], "loan_date"=>$currentTimestamp, "loaned_by_user_id"=>1);
 
 	$results = postRequest_Update_Books_setLoanDate($loanDateRequestInfo);
 

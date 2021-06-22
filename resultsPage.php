@@ -21,11 +21,11 @@
 		$queryResults = getRequest_query($_GET);
 
 		if (count($queryResults) == 1){
-			$recordPageParams = "table=books&isbn={$queryResults[0]["isbn"]}";
+			$recordPageParams = "table=books&id={$queryResults[0]["id"]}";
 			header("Refresh: 0.1; URL=recordPage.php?{$recordPageParams}");
 		} else{
 			$headerRow = ["isbn", "name", "description"];
-			$resultsFormatted = formatRecordsAsTable($queryResults, $headerRow, "books", "isbn");
+			$resultsFormatted = formatRecordsAsTable($queryResults, $headerRow, "books", "id");
 			echo $resultsFormatted;
 		}
 

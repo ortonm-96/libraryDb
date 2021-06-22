@@ -14,7 +14,7 @@
 
 		$booksTable = getBooks_overdue();
 		$headerRow = ["isbn", "name", "description", "full_name", "due_date"];
-		$booksTableFormatted = formatRecordsAsTable($booksTable, $headerRow, "books", "isbn");
+		$booksTableFormatted = formatRecordsAsTable($booksTable, $headerRow, "books", "id");
 		echo $booksTableFormatted;
 	?>
 	</div>

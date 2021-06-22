@@ -3,11 +3,11 @@
 function postRequest_Delete_fromBooks($postRequest){
 	require_once "functions/config.php";
 
-	$sqlStatement = "DELETE FROM books WHERE isbn = :isbn";
+	$sqlStatement = "DELETE FROM books WHERE id = :id";
 
 	$statement = $pdo->prepare($sqlStatement);
 
-	$statement->execute(["isbn" => $postRequest["isbn"]]);
+	$statement->execute(["id" => $postRequest["id"]]);
 	
 	$results = $statement->fetchAll();
 

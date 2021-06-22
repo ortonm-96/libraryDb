@@ -14,7 +14,7 @@
 
 		$booksTable = getBooks();
 		$headerRow = ["isbn", "name", "description"];
-		$booksTableFormatted = formatRecordsAsTable($booksTable, $headerRow, "books", "isbn");
+		$booksTableFormatted = formatRecordsAsTable($booksTable, $headerRow, "books", "id");
 		echo $booksTableFormatted;
 	?>
 	</div>

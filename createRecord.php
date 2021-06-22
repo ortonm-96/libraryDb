@@ -10,7 +10,7 @@
 	// Formats the post request as a table (generating feedback of the expected output)
 	// Cheats a little bit - ideally I should have the feedback be the *actual* record as it is in the tables. Will add this at a later date
 	$headerRow = ["isbn", "name", "description"];
-	$created = formatRecordsAsTable([$_POST], $headerRow, "books", "isbn");
+	$created = formatRecordsAsTable([$_POST], $headerRow, "books", "id");
 	/*
 	$createdId = $pdo->prepare("SELECT * FROM books WHERE isbn=?")->execute($lastInserted);
 	$createdFetch = $createdId->fetchAll();
