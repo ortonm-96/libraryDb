@@ -8,9 +8,9 @@ function postRequest_Update_Books($postRequest){
 	$statement = $pdo->prepare($sqlStatement);
 
 	$statement->execute([
-		'isbn' => $_POST["isbn"],
-		'name' => $_POST["name"],
-		'description' => $_POST["description"]
+		'isbn' => $postRequest["isbn"],
+		'name' => $postRequest["name"],
+		'description' => $postRequest["description"]
 	]);
 	
 	$results = $statement->fetchAll();
@@ -19,5 +19,22 @@ function postRequest_Update_Books($postRequest){
 
 }
 
+function postRequest_Update_Books_setLoanDate($postRequest){
+	require_once "functions/config.php";
+	
+	$sqlStatement = "UPDATE books SET loan_date = :loan_date WHERE isbn = :isbn";
+
+	$statement = $pdo->prepare($sqlStatement);
+
+	$statement->execute([
+		'loan_date' => $postRequest["loan_date"],
+		'isbn' => $postRequest["isbn"]
+	]);
+	
+	$results = $statement->fetchAll();
+
+	return $results;
+
+}
 
 ?>
