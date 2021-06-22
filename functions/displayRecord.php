@@ -23,7 +23,7 @@ function formatRecordsAsTable($records, $headerRow, $tableName="", $primaryKey="
 	$headerHtml = "";
 
 	foreach ($headerRow as $header){
-		$headerHtml .= wrapStringInHtmlTag($header, "th");
+		$headerHtml .= wrapStringInHtmlTag($header[1], "th");
 	}
 
 	$tableHtml = wrapStringInHtmlTag($headerHtml, "tr");
@@ -31,7 +31,7 @@ function formatRecordsAsTable($records, $headerRow, $tableName="", $primaryKey="
 	foreach ($records as $record) {
 		$rowHtml = "";
 		foreach ($headerRow as $i => $header) {
-			$cellContent = $record[$header] ?: "";
+			$cellContent = $record[$header[0]] ?: "";
 			// In the first cell of each row, add a link to the individual item page
 			if ($i == 0){
 				// Only run if the required info was given in the arguments

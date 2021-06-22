@@ -13,7 +13,13 @@
 		require_once "functions/displayRecord.php";
 
 		$booksTable = getBooks_overdue();
-		$headerRow = ["isbn", "name", "description", "full_name", "due_date"];
+		$headerRow = [
+			["isbn", "ISBN"],
+			["name", "Name"],
+			["description", "Description"],
+			["full_name", "Loaned by"],
+			["due_date", "Due by"]
+		];
 		$booksTableFormatted = formatRecordsAsTable($booksTable, $headerRow, "books", "id");
 		echo $booksTableFormatted;
 	?>

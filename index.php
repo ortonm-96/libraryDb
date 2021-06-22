@@ -13,7 +13,11 @@
 		require_once "functions/displayRecord.php";
 
 		$booksTable = getBooks();
-		$headerRow = ["isbn", "name", "description"];
+		$headerRow = [
+			["isbn", "ISBN"],
+			["name", "Name"],
+			["description", "Description"]
+		];
 		$booksTableFormatted = formatRecordsAsTable($booksTable, $headerRow, "books", "id");
 		echo $booksTableFormatted;
 	?>

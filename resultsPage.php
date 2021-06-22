@@ -24,7 +24,11 @@
 			$recordPageParams = "table=books&id={$queryResults[0]["id"]}";
 			header("Refresh: 0.1; URL=recordPage.php?{$recordPageParams}");
 		} else{
-			$headerRow = ["isbn", "name", "description"];
+			$headerRow = [
+				["isbn", "ISBN"],
+				["name", "Name"],
+				["description", "Description"]
+			];
 			$resultsFormatted = formatRecordsAsTable($queryResults, $headerRow, "books", "id");
 			echo $resultsFormatted;
 		}

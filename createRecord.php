@@ -3,7 +3,6 @@
 
 <?php
 	require_once "functions/create.php";
-	require_once "functions/displayRecord.php";
 	
 	$createdId = postRequest_create($_POST);
 
