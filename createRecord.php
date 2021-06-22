@@ -4,23 +4,16 @@
 <?php
 	require_once "functions/create.php";
 	require_once "functions/displayRecord.php";
+	
+	$createdId = postRequest_create($_POST);
 
-	postRequest_create($_POST);
+	$recordPageParams = "table=books&id={$createdId}";
+	header("Refresh: 1.5; URL=recordPage.php?{$recordPageParams}");
 
-	// Formats the post request as a table (generating feedback of the expected output)
-	// Cheats a little bit - ideally I should have the feedback be the *actual* record as it is in the tables. Will add this at a later date
-	$headerRow = ["isbn", "name", "description"];
-	$created = formatRecordsAsTable([$_POST], $headerRow, "books", "id");
-	/*
-	$createdId = $pdo->prepare("SELECT * FROM books WHERE isbn=?")->execute($lastInserted);
-	$createdFetch = $createdId->fetchAll();
-	$created = formatRecordsAsTable($createdFetch);
-	*/
 ?>
 <div class="container-fluid float-left border rounded">
 <p>
-	Item created: <br>
-	<?php echo $created ?>
+	Item created succesfully<br>
 </p>
 <a role="button" class="btn btn-light" href="index.php">Home</a>
 </div>
