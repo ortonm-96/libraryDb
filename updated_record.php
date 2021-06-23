@@ -4,7 +4,6 @@
 	require_once "functions/update.php";
 
 	$results = postRequest_Update_Books($_POST);
-
 	header("Refresh: 1.5; URL= {$_SERVER["HTTP_REFERER"]}");
 ?>
 <div class="container float-left border rounded">
