@@ -24,9 +24,11 @@
 				include "recordPage_booksTemplate.php";
 				break;
 			case "users":
-				$resultsFormatted = "";
 				include "recordPage_userTemplate.php";
 				break;
+			default:
+				$resultsFormatted = formatRecordForPage_inputs($queryResults[0]);
+				echo $resultsFormatted;
 		}
 
 	?>
