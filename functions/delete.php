@@ -1,7 +1,7 @@
 <?php
 
 function postRequest_Delete_fromBooks($postRequest){
-	require_once "functions/config.php";
+	require "functions/config.php";
 
 	$sqlStatement = "DELETE FROM books WHERE id = :id";
 

@@ -1,7 +1,7 @@
 <?php
 
 function postRequest_create($postRequest){
-	require_once "functions/config.php";
+	require "functions/config.php";
 	$sqlInsertStatement = 'INSERT INTO `books` (`isbn`, `name`, `description`) VALUES (:isbn, :name, :description)';
 
 	$statement = $pdo->prepare($sqlInsertStatement);
