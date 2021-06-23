@@ -1,9 +1,18 @@
 <?php
 
 function postRequest_Update_Books($postRequest){
-	require_once "functions/config.php";
-	
-	$sqlStatement = "UPDATE books SET isbn = :isbn, name = :name, description = :description WHERE id = :id";
+	require "functions/config.php";
+
+	$sqlStatement = "UPDATE books SET isbn = :isbn, name = :name, description = :description, loan_date = :loan_date, loaned_by_user_id = :loaned_by_user_id WHERE id = :id";
+
+	// If the user is setting a loan date manually, and the book doesn't already have a Loaned By value, set the loaned by ID to 1. (Future versions will take this value from the logged in user or something)
+	if (!empty($postRequest["loan_date"]) and empty($postRequest["loaned_by_user_id"])){
+		$postRequest["loaned_by_user_id"] = 1;
+	}
+	// If the request had an empty value for Loaned By, set it to Null (otherwise it'll break the Foreign Key constraints)
+	if (empty($postRequest["loaned_by_user_id"])){
+		$postRequest["loaned_by_user_id"] = NULL;
+	}
 
 	$statement = $pdo->prepare($sqlStatement);
 
@@ -11,7 +20,9 @@ function postRequest_Update_Books($postRequest){
 		'id' => $postRequest["id"],
 		'isbn' => $postRequest["isbn"],
 		'name' => $postRequest["name"],
-		'description' => $postRequest["description"]
+		'description' => $postRequest["description"],
+		'loan_date' => $postRequest["loan_date"],
+		'loaned_by_user_id' => $postRequest["loaned_by_user_id"],
 	]);
 	
 	$results = $statement->fetchAll();
@@ -21,7 +32,7 @@ function postRequest_Update_Books($postRequest){
 }
 
 function postRequest_Update_Books_setLoanDate($postRequest){
-	require_once "functions/config.php";
+	require "functions/config.php";
 	
 	$sqlStatement = "UPDATE books SET loan_date = :loan_date, loaned_by_user_id = :loaned_by_user_id WHERE id = :id";
 
