@@ -1,0 +1,38 @@
+<?php 
+	// Perform operations on the content we buffered in permissionBuffer_head.
+	// Allows (among other things) elements to be filtered out based on the user's permission levels.
+	// I could probably add or modify HTML here as well, if I wanted to.
+	// I want to explore this more when I have the chance. Being able to pass every page through a function in an easily-parsable format like this is actually very powerful
+
+	// Retrieve the HTML from the output buffer, then clear it and turn off buffering.
+	$content = ob_get_contents();
+	ob_end_clean();
+
+	// Initialize a DOMDocument object and load the page string into it. 
+	$content_dom = new DOMDocument();
+	libxml_use_internal_errors(true); // Silences warnings
+	$content_dom->loadHTML($content);
+
+	// Load the DOMDocument into a DOMXPath object.
+	$xpath = new DOMXPath($content_dom);
+
+	// Get the user's permission level (todo: 1st version just uses the User ID, later versions will have a proper permission field in the table), then construct and execute an XPath query.
+	// The query selects all elements in the document whose permissionlevel attribute doesn't match the user's. (todo: Consider other operators in later versions. Greater than/ less than might be useful features to have.)
+	if (isset($_SESSION['userId'])){
+		$userPermissionLevel = $_SESSION['userId'];	
+	} else {
+		$userPermissionLevel = 0;
+	}
+	
+	$permissionLevelQuery = "//*[@permissionlevel!={$userPermissionLevel}]";
+	$entriesToDelete = $xpath->query($permissionLevelQuery);	
+	
+	// Iterate through the elements found by the xpath query, and delete each one.
+	// Have to iterate through the array backwards because it's deleting items from an array I'm currently looping through
+	for ($i = $entriesToDelete->length; --$i >= 0; ) {
+  		$href = $entriesToDelete->item($i);
+  		$href->parentNode->removeChild($href);
+	}
+	
+	echo $content_dom->saveHTML();
+ ?>

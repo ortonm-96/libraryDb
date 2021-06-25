@@ -1,0 +1,9 @@
+<?php
+    session_start();
+
+    // If no user is logged in, forcibly redirect to the login page.
+    if (!isset($_SESSION["userId"])){
+        //header("Refresh: 0.1; URL=/libraryDb/sessionTest/sessionTest_login_prompt.php");
+        header("LOCATION: /libraryDb/sessionTest/sessionTest_login_prompt.php");
+      }
+?>

@@ -6,8 +6,9 @@ function postRequest_Update_Books($postRequest){
 	$sqlStatement = "UPDATE books SET isbn = :isbn, name = :name, description = :description, loan_date = :loan_date, loaned_by_user_id = :loaned_by_user_id WHERE id = :id";
 
 	// If the user is setting a loan date manually, and the book doesn't already have a Loaned By value, set the loaned by ID to 1. (Future versions will take this value from the logged in user or something)
+	// Implemented the above - still in testing though
 	if (!empty($postRequest["loan_date"]) and empty($postRequest["loaned_by_user_id"])){
-		$postRequest["loaned_by_user_id"] = 1;
+		$postRequest["loaned_by_user_id"] = $_SESSION["userId"];
 	}
 	// If the request had an empty value for Loaned By, set it to Null (otherwise it'll break the Foreign Key constraints)
 	if (empty($postRequest["loaned_by_user_id"])){

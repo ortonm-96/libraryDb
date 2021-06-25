@@ -1,3 +1,5 @@
+<?php include "templates/sessionReqs.html";?>
+<?php include "templates/permissionBuffer_head.html";?>
 <?php include "templates/bootstrapReqs.html";?>
 <?php include "templates/navbar.html";?>
 <!DOCTYPE html>
@@ -40,3 +42,4 @@
 
 <?php include "templates/bootstrapScript.html";?>
 </html>
+<?php include "templates/permissionBuffer_tail.html";?>

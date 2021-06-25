@@ -1,3 +1,5 @@
+<?php include "templates/sessionReqs.html";?>
+<?php include "templates/permissionBuffer_head.html";?>
 <?php include "templates/bootstrapReqs.html";?>
 <?php include "templates/navbar.html";?>
 
@@ -17,3 +19,4 @@
 <a role="button" class="btn btn-light" href="index.php">Home</a>
 </div>
 <?php include "templates/bootstrapScript.html";?>
+<?php include "templates/permissionBuffer_tail.html";?>

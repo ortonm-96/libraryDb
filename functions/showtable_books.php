@@ -48,4 +48,16 @@ function getBooks_overdue(){
 	return $tableOutput;
 }
 
+function getBooks_overdue_byUser($userId){
+	require "functions/config.php";
+	$currentTimestamp = date('Y-m-d H:i:s');
+	$sqlStatement = 'SELECT * FROM books INNER JOIN users ON books.loaned_by_user_id = users.user_id WHERE users.user_id = :userId AND due_date < "'.$currentTimestamp.'"';
+
+	$statement = $pdo->prepare($sqlStatement);
+	$statement->execute(['userId' => $userId]);
+	$tableOutput = $statement->fetchAll();
+
+	return $tableOutput;
+}
+
 ?>

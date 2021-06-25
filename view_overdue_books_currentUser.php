@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Home</title>
+	<title>Loaned books</title>
 </head>
 <body>
 	<div class="container-fluid float-left border rounded">
@@ -14,11 +14,13 @@
 		require_once "functions/showtable_books.php";
 		require_once "functions/displayRecord.php";
 
-		$booksTable = getBooks();
+		$booksTable = getBooks_overdue_byUser($_SESSION["userId"]);
 		$headerRow = [
 			["isbn", "ISBN"],
 			["name", "Name"],
-			["description", "Description"]
+			["description", "Description"],
+			["full_name", "Loaned by"],
+			["due_date", "Due by"]
 		];
 		$booksTableFormatted = formatRecordsAsTable($booksTable, $headerRow, "books", "id");
 		echo $booksTableFormatted;

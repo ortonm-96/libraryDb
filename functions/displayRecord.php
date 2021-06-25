@@ -89,4 +89,72 @@ function formatRecordForPage_inputs($record){
 
 }
 
+function generateNavbarItems(){
+	// Redundant since I added the output buffer trick. Will be removed soon.
+	// Iterate through a list of possible navbar items
+	// For each one, check the permissions required to display it against the permissions of the current user.
+	// Add each item that passed to the HTML string to be returned
+
+	$generatedHtmlContent = "";
+
+	// Get the user's type/role from the session variables (or possibly by checking their permissions in the users table).
+	// I haven't decided what form I'm going to store these in yet in the SQL, so for the time being I'm just going to check against the user's ID
+	// (Which works just fine in the short-term, since I only have 2 test accounts: #1 - Molly Orton (Staff) and #2 - Joe Bloggs (User))
+	// Make sure the session variable actually exists before I use it. If not (because the user isn't logged in) there won't be any point generating a navbar anyway, so just return early
+	if (isset($_SESSION["userId"])){
+		$userType = $_SESSION["userId"];
+	} else{
+		return $generatedHtmlContent;
+	}
+
+	$navbar_buttons = [
+		[
+			"text" => "Create item",
+			"href" => "/libraryDb/createItem.php",
+			"visibleToRoles" => [1]
+		],
+		[
+			"text" => "Advanced search",
+			"href" => "/libraryDb/search_isbn.php",
+			"visibleToRoles" => [1, 3]
+		],
+		[
+			"text" => "View books on loan",
+			"href" => "/libraryDb/view_loaned_books.php",
+			"visibleToRoles" => [1]
+		],
+		[
+			"text" => "View overdue books",
+			"href" => "/libraryDb/view_overdue_books.php",
+			"visibleToRoles" => [1]
+		],
+		[
+			"text" => "My books on loan",
+			"href" => "/libraryDb/view_loaned_books_currentUser.php",
+			"visibleToRoles" => [3]
+		],
+		[
+			"text" => "My overdue books",
+			"href" => "/libraryDb/view_overdue_books_currentUser.php",
+			"visibleToRoles" => [3]
+		],
+		[
+			"text" => "List users",
+			"href" => "/libraryDb/listUsers.php",
+			"visibleToRoles" => [1]
+		]
+	];
+
+	foreach ($navbar_buttons as $navbar_item) {
+		if (in_array($userType, $navbar_item["visibleToRoles"])){
+			$navItemAttrs = "class=\"nav-link btn btn-light\" href=\"{$navbar_item["href"]}\"";
+			$generatedHtmlContent .= wrapStringInHtmlTag($navbar_item["text"], "a", $navItemAttrs);
+
+		}
+	}
+
+	return $generatedHtmlContent;
+
+}
+
 ?>

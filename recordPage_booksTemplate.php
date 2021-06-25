@@ -19,7 +19,6 @@
 		$userRecordLink = "";
 	}
 
-
 	if(!empty($loan_date)){
 			$loanDisabled = " disabled";
 			$returnDisabled = "";
@@ -71,8 +70,8 @@
 	</div>
 
 
-	<button type="submit" role="button" class="btn btn-light" formaction="updated_record.php">Update</button>
-	<button type="submit" role="button" class="btn btn-light" formaction="deleted_record.php">Delete</button>
+	<button permissionLevel="1" type="submit" role="button" class="btn btn-light" formaction="updated_record.php">Update</button>
+	<button permissionLevel="1" type="submit" role="button" class="btn btn-light" formaction="deleted_record.php">Delete</button>
 	<button type="submit" role="button" class="btn btn-light" formaction="loanBook.php"<?php echo $loanDisabled; ?>>Loan book</button>
 	<button type="submit" role="button" class="btn btn-light" formaction="returnBook.php"<?php echo $returnDisabled; ?>>Return book</button>
 </form>
