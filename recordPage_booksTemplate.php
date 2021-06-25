@@ -22,6 +22,10 @@
 	if(!empty($loan_date)){
 			$loanDisabled = " disabled";
 			$returnDisabled = "";
+			// if user isn't staff and the book is loaned by someone else, disable the return button.
+			if($_SESSION['userId'] == 3 and $loaned_by_user_id != $_SESSION['userId']){
+				$returnDisabled = "disabled";
+			}
 		} else {
 			$loanDisabled = "";
 			$returnDisabled = " disabled";

@@ -1,7 +1,8 @@
 <?php
 
 function getRequest_query($getRequest){
-	require "functions/config.php";
+	//require "functions/config.php";
+	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
 	$tableName = $getRequest["table"];
 	$prepare_vars = [$tableName];
 	unset($getRequest["table"]);
