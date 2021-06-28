@@ -18,6 +18,23 @@ function uploadImage($files){
 
 	$uploadPath = $currentDirectory . "/". $uploadDirectory . basename($fileName); 
 
+	/* Meanings of the different error codes that could be in $files. I should make sure each of these conditions are accounted for.
+	$phpFileUploadErrors = array(
+	    0 => 'There is no error, the file uploaded with success',
+	    1 => 'The uploaded file exceeds the upload_max_filesize directive in php.ini',
+	    2 => 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form',
+	    3 => 'The uploaded file was only partially uploaded',
+	    4 => 'No file was uploaded',
+	    6 => 'Missing a temporary folder',
+	    7 => 'Failed to write file to disk.',
+	    8 => 'A PHP extension stopped the file upload.',
+	);
+	*/
+	// Very basic error behaviour - just return early if everything isn't ok
+	if ($files["fileToUpload"]["error"] != 0) {
+		return False;
+	}
+
 	// Check if image file is an actual image or fake image
 	/*
 	if (isset($_POST["submit"])) {

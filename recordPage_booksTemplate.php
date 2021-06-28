@@ -34,6 +34,7 @@
 
 ?>
 <p>Book page template test</p>
+<img src=<?php echo "\"{$cover_image_filepath}\""; ?>>
 <form method="post" enctype="multipart/form-data">
 
 	<div class="form-group d-none">
@@ -67,6 +68,11 @@
 	</div>
 
 	<div class="form-group">
+		<label for="fileToUpload">Upload new cover image</label>
+		<input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
+	</div>
+
+	<div class="form-group">
 		<label for="loaned_by_user_id">Loaned By</label>
 		<!-- Hide the actual input, because there's no reason for the user to have access to this.-->
 		<input type="hidden" name="loaned_by_user_id" id="loaned_by_user_id" class="form-control" value=<?php echo "\"{$loaned_by_user_id}\""; ?>></input>
@@ -74,17 +80,10 @@
 		<a href=<?php echo "{$userRecordLink}"; ?>><?php echo "{$userFullName}"; ?></a>
 	</div>
 
-	<div class="form-group">
-		<label for="fileToUpload">filetoUpload</label>
-		<input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
-	</div>
-
 	<div class="form-group d-none">
 		<label for="cover_image_filepath">cover_image_filepath</label>
 		<input type="text" name="cover_image_filepath" id="cover_image_filepath" class="form-control" value=<?php echo "\"{$cover_image_filepath}\""; ?>></input>
 	</div>
-
-	<img src=<?php echo "\"{$cover_image_filepath}\""; ?>>
 
 	<button permissionLevel="1" type="submit" role="button" class="btn btn-light" formaction="updated_record.php">Update</button>
 	<button permissionLevel="1" type="submit" role="button" class="btn btn-light" formaction="deleted_record.php">Delete</button>

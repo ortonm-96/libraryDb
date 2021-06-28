@@ -18,9 +18,6 @@ function postRequest_Update_Books($postRequest){
 			//$coverImageFilepath = str_replace("\\", "/", realpath($uploadedFile));
 			$coverImageFilepath = str_replace("\\", "/", $uploadedFile);
 			// If successful, set cover_image_filepath to the return value
-		} else{
-			// Should I put some sort of failure behaviour here? Or is it enough to omit the else statement and just not have it do anything?
-			echo "file upload failed for whatever reason";
 		}
 	}
 
