@@ -5,11 +5,17 @@
 
 require_once "../functions/query.php";
 
+// Todo: Store hashed passwords instead of plaintext ones.
+// Leaving this one for now to work on other things - I can feel myself flagging a little.
+//$pw = $_POST["password"] ?: "";
+//$pwHashed = password_hash($pw, PASSWORD_DEFAULT);
+//echo $pwHashed;
+
 // Placeholder - use some fields that are already present in the table while I confirm this works
 $queryParams = [
 	"table" => "users",
 	"username" => $_POST["username"] ?: "",
-	"user_id" => $_POST["password"] ?: ""
+	"password" => $_POST["password"] ?: ""
 ];
 
 $queryResults = getRequest_query($queryParams);

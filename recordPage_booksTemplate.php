@@ -8,6 +8,7 @@
 	$loan_date = $queryResults[0]["loan_date"] ?: "";
 	$due_date = $queryResults[0]["due_date"] ?: "";
 	$loaned_by_user_id = $queryResults[0]["loaned_by_user_id"] ?: "";
+	$cover_image_filepath = $queryResults[0]["cover_image_filepath"] ?: "";
 
 	if (!empty($loaned_by_user_id)){
 		$userInfo = getRequest_query(["table"=>"users", "user_id"=>$loaned_by_user_id]);
@@ -33,7 +34,7 @@
 
 ?>
 <p>Book page template test</p>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
 
 	<div class="form-group d-none">
 		<label for="first_name">ID</label>
@@ -73,6 +74,17 @@
 		<a href=<?php echo "{$userRecordLink}"; ?>><?php echo "{$userFullName}"; ?></a>
 	</div>
 
+	<div class="form-group">
+		<label for="fileToUpload">filetoUpload</label>
+		<input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
+	</div>
+
+	<div class="form-group d-none">
+		<label for="cover_image_filepath">cover_image_filepath</label>
+		<input type="text" name="cover_image_filepath" id="cover_image_filepath" class="form-control" value=<?php echo "\"{$cover_image_filepath}\""; ?>></input>
+	</div>
+
+	<img src=<?php echo "\"{$cover_image_filepath}\""; ?>>
 
 	<button permissionLevel="1" type="submit" role="button" class="btn btn-light" formaction="updated_record.php">Update</button>
 	<button permissionLevel="1" type="submit" role="button" class="btn btn-light" formaction="deleted_record.php">Delete</button>
