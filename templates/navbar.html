@@ -25,13 +25,13 @@
         <!--Navbar items sorted by user permission level. Staff need to see different items to users. Elements each role shouldn't see are filtered out at permissionBuffer_tail.
             I haven't yet added a way for an element to have multiple permisson levels, so items that should be visible to more than one role (Advanced search) need to be declared twice. Later versions will fix this.
          -->
-        <a permissionlevel="1" class="nav-link btn btn-light" href="/libraryDb/createItem.php">Create item</a>
-        <a permissionlevel="1" class="nav-link btn btn-light" href="/libraryDb/search_isbn.php">Advanced search</a>
+        <a permissionlevel="1" class="nav-link btn btn-light" href="/libraryDb/forms/createItem.php">Create item</a>
+        <a permissionlevel="1" class="nav-link btn btn-light" href="/libraryDb/forms/search_isbn.php">Advanced search</a>
         <a permissionlevel="1" class="nav-link btn btn-light" href="/libraryDb/view_loaned_books.php">View books on loan</a>
         <a permissionlevel="1" class="nav-link btn btn-light" href="/libraryDb/view_overdue_books.php">View overdue books</a>
         <a permissionlevel="1" class="nav-link btn btn-light" href="/libraryDb/listUsers.php">List users</a>
 
-        <a permissionlevel="3" class="nav-link btn btn-light" href="/libraryDb/search_isbn.php">Advanced search</a>
+        <a permissionlevel="3" class="nav-link btn btn-light" href="/libraryDb/forms/search_isbn.php">Advanced search</a>
         <a permissionlevel="3" class="nav-link btn btn-light" href="/libraryDb/view_loaned_books_currentUser.php">My books on loan</a>
         <a permissionlevel="3" class="nav-link btn btn-light" href="/libraryDb/view_overdue_books_currentUser.php">My overdue books</a>
         <!--

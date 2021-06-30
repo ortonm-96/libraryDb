@@ -1,7 +1,7 @@
-<?php include "templates/sessionReqs.html";?>
-<?php include "templates/permissionBuffer_head.html";?>
-<?php include "templates/bootstrapReqs.html";?>
-<?php include "templates/navbar.html";?>
+<?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/sessionReqs.html";?>
+<?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/permissionBuffer_head.html";?>
+<?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/bootstrapReqs.html";?>
+<?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/navbar.html";?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +13,10 @@
 	<div class="float-left container border rounded">
 
 	<p>Search for record</p>
-	<a href="index.php" role="button" class="btn btn-light">Back</a>
+	<a href="/libraryDb/index.php" role="button" class="btn btn-light">Back</a>
 	</div>
 	<div class="float-left container border rounded">
-	<form action="resultsPage.php" method="get">
+	<form action="/libraryDb/resultsPage.php" method="get">
 		<div class="my-2">
 		<label for="isbn" class="form-label">ISBN:</label>
 		<input type="text" name="isbn" id="isbn" class="form-control">
@@ -33,6 +33,6 @@
 	</div>
 
 </body>
-<?php include "templates/bootstrapScript.html";?>
+<?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/bootstrapScript.html";?>
 </html>
-<?php include "templates/permissionBuffer_tail.html";?>
+<?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/permissionBuffer_tail.html";?>

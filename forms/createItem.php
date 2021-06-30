@@ -1,7 +1,7 @@
-<?php include "templates/sessionReqs.html";?>
-<?php include "templates/permissionBuffer_head.html";?>
-<?php include "templates/bootstrapReqs.html";?>
-<?php include "templates/navbar.html";?>
+<?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/sessionReqs.html";?>
+<?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/permissionBuffer_head.html";?>
+<?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/bootstrapReqs.html";?>
+<?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/navbar.html";?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +11,11 @@
 <body>
 	<div class="float-left container border rounded">
 	<p>Create item</p>
-	<a role="button" class="btn btn-light" href="index.php">Back</a>
+	<a role="button" class="btn btn-light" href="/libraryDb/index.php">Back</a>
 	</div>
 	
 	<div class="float-left container border rounded">
-	<form action="createRecord.php" method="post">
+	<form action="/libraryDb/createRecord.php" method="post">
 		<div class="my-2">
 		<label for="isbn" class="form-label">ISBN:</label>
 		<input type="number" name="isbn" id="isbn" class="form-control" required>
@@ -38,6 +38,6 @@
 
 	</div>
 </body>
-<?php include "templates/bootstrapScript.html";?>
+<?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/bootstrapScript.html";?>
 </html>
-<?php include "templates/permissionBuffer_tail.html";?>
+<?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/permissionBuffer_tail.html";?>
