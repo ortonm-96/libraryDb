@@ -15,7 +15,7 @@
 	</div>
 	
 	<div class="float-left container border rounded">
-	<form action="/libraryDb/createRecord.php" method="post">
+	<form action="/libraryDb/post_handlers/createRecord.php" method="post">
 		<div class="my-2">
 		<label for="isbn" class="form-label">ISBN:</label>
 		<input type="number" name="isbn" id="isbn" class="form-control" required>

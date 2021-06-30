@@ -1,6 +1,6 @@
 <?php
 function getUsers(){
-	require "functions/config.php";
+	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
 
 	$sqlStatement = 'SELECT * FROM users';
 

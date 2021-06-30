@@ -1,7 +1,7 @@
 <?php
 
 function postRequest_Delete_fromBooks($postRequest){
-	require "functions/config.php";
+	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
 
 	$sqlStatement = "DELETE FROM books WHERE id = :id";
 

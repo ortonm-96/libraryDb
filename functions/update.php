@@ -1,14 +1,14 @@
 <?php
 
 function postRequest_Update_Books($postRequest){
-	require "functions/config.php";
+	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
 
 	$sqlStatement = "UPDATE books SET isbn = :isbn, name = :name, description = :description, loan_date = :loan_date, loaned_by_user_id = :loaned_by_user_id, cover_image_filepath = :coverImageFilepath WHERE id = :id";
 
 	// 
 	// If a file is present, attempt to upload it, and if successful set the cover_filepath to the uploaded path.
 	if (isset($_FILES)){
-		require "uploadImage.php";
+		require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/uploadImage.php";
 		$uploadedFile = uploadImage($_FILES);
 		// uploadImage returns the filepath if successful, False if not
 		if ($uploadedFile){
@@ -57,7 +57,7 @@ function postRequest_Update_Books($postRequest){
 function postRequest_Update_Books_setLoanDate($postRequest){
 	// Called when the user clicks the "loan book" button.
 	// Updates the record to loan to the current user at the current date.
-	require "functions/config.php";
+	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
 	
 	$sqlStatement = "UPDATE books SET loan_date = :loan_date, loaned_by_user_id = :loaned_by_user_id WHERE id = :id";
 

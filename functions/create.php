@@ -1,7 +1,7 @@
 <?php
 
 function postRequest_create($postRequest){
-	require "functions/config.php";
+	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
 	$sqlInsertStatement = 'INSERT INTO `books` (`isbn`, `name`, `description`) VALUES (:isbn, :name, :description)';
 
 	$statement = $pdo->prepare($sqlInsertStatement);

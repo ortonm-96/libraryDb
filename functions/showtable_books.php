@@ -1,7 +1,7 @@
 <?php
 
 function getBooks(){
-	require "functions/config.php";
+	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
 
 	$sqlStatement = 'SELECT * FROM books';
 
@@ -13,7 +13,7 @@ function getBooks(){
 }
 
 function getBooks_loaned(){
-	require "functions/config.php";
+	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
 
 	$sqlStatement = 'SELECT * FROM books INNER JOIN users ON books.loaned_by_user_id = users.user_id WHERE loan_date IS NOT NULL';
 
@@ -25,7 +25,7 @@ function getBooks_loaned(){
 }
 
 function getBooks_loaned_byUser($userId){
-	require "functions/config.php";
+	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
 
 	$sqlStatement = 'SELECT * FROM books INNER JOIN users ON books.loaned_by_user_id = users.user_id WHERE loan_date IS NOT NULL AND users.user_id = :userId';
 
@@ -37,7 +37,7 @@ function getBooks_loaned_byUser($userId){
 }
 
 function getBooks_overdue(){
-	require "functions/config.php";
+	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
 	$currentTimestamp = date('Y-m-d H:i:s');
 	$sqlStatement = 'SELECT * FROM books INNER JOIN users ON books.loaned_by_user_id = users.user_id WHERE due_date < "'.$currentTimestamp.'"';
 
@@ -49,7 +49,7 @@ function getBooks_overdue(){
 }
 
 function getBooks_overdue_byUser($userId){
-	require "functions/config.php";
+	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
 	$currentTimestamp = date('Y-m-d H:i:s');
 	$sqlStatement = 'SELECT * FROM books INNER JOIN users ON books.loaned_by_user_id = users.user_id WHERE users.user_id = :userId AND due_date < "'.$currentTimestamp.'"';
 

@@ -85,8 +85,8 @@
 		<input type="text" name="cover_image_filepath" id="cover_image_filepath" class="form-control" value=<?php echo "\"{$cover_image_filepath}\""; ?>></input>
 	</div>
 
-	<button permissionLevel="1" type="submit" role="button" class="btn btn-light" formaction="updated_record.php">Update</button>
-	<button permissionLevel="1" type="submit" role="button" class="btn btn-light" formaction="deleted_record.php">Delete</button>
-	<button type="submit" role="button" class="btn btn-light" formaction="loanBook.php"<?php echo $loanDisabled; ?>>Loan book</button>
-	<button type="submit" role="button" class="btn btn-light" formaction="returnBook.php"<?php echo $returnDisabled; ?>>Return book</button>
+	<button permissionLevel="1" type="submit" role="button" class="btn btn-light" formaction="/libraryDb/post_handlers/updated_record.php">Update</button>
+	<button permissionLevel="1" type="submit" role="button" class="btn btn-light" formaction="/libraryDb/post_handlers/deleted_record.php">Delete</button>
+	<button type="submit" role="button" class="btn btn-light" formaction="/libraryDb/post_handlers/loanBook.php"<?php echo $loanDisabled; ?>>Loan book</button>
+	<button type="submit" role="button" class="btn btn-light" formaction="/libraryDb/post_handlers/returnBook.php"<?php echo $returnDisabled; ?>>Return book</button>
 </form>
