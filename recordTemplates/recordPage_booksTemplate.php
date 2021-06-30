@@ -38,7 +38,7 @@
 <form method="post" enctype="multipart/form-data">
 
 	<div class="form-group d-none">
-		<label for="first_name">ID</label>
+		<label for="id">ID</label>
 		<input required type="number" name="id" id="id" class="form-control" value=<?php echo "\"{$id}\""; ?>></input>
 	</div>
 

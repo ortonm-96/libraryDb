@@ -75,4 +75,26 @@ function postRequest_Update_Books_setLoanDate($postRequest){
 
 }
 
+function postRequest_Update_User($postRequest){
+	// Called when the user clicks the "loan book" button.
+	// Updates the record to loan to the current user at the current date.
+	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
+	
+	$sqlStatement = "UPDATE users SET first_name = :first_name, last_name = :last_name, username = :username WHERE user_id = :user_id";
+
+	$statement = $pdo->prepare($sqlStatement);
+
+	$statement->execute([
+		'first_name' => $postRequest["first_name"],
+		'last_name' => $postRequest["last_name"],
+		'username' => $postRequest["username"],
+		'user_id' => $postRequest["user_id"]
+	]);
+	
+	$results = $statement->fetchAll();
+
+	return $results;
+
+}
+
 ?>
