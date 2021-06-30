@@ -19,4 +19,20 @@ function postRequest_create($postRequest){
 
 }
 
+function postRequest_create_user($postRequest){
+	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
+	$sqlInsertStatement = 'INSERT INTO `users` (`first_name`, `last_name`, `username`, `password`) VALUES (:first_name, :last_name, :username, :password)';
+
+	$statement = $pdo->prepare($sqlInsertStatement);
+	$statement->execute([
+		'first_name' => $_POST["first_name"],
+		'last_name' => $_POST["last_name"],
+		'username' => $_POST["username"],
+		'password' => $_POST["password"]
+	]);
+
+	return $pdo->lastInsertId();
+
+}
+
 ?>

@@ -23,6 +23,9 @@
 		echo $usersTableFormatted;
 	?>
 	</div>
+	<div class="container-fluid float-left border rounded">
+		<a role="button" class="btn btn-light" href="/libraryDb/forms/create_user.php">Create New User</a>
+	</div>
 </body>
 <?php include "templates/bootstrapScript.html";?>
 </html>
