@@ -1,5 +1,5 @@
 <?php
-require_once "functions/showtable_books.php";
+require_once "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/showtable_books.php";
 
 //echo $resultsFormatted
 $user_id = $queryResults[0]["user_id"] ?: "";

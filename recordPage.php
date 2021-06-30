@@ -23,10 +23,10 @@
 		// Record page handler - Read the table name and choose the appropriate page template.
 		switch($_GET["table"]){
 			case "books":
-				include "recordPage_booksTemplate.php";
+				include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/recordTemplates/recordPage_booksTemplate.php";
 				break;
 			case "users":
-				include "recordPage_userTemplate.php";
+				include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/recordTemplates/recordPage_userTemplate.php";
 				break;
 			default:
 				$resultsFormatted = formatRecordForPage_inputs($queryResults[0]);

@@ -13,7 +13,7 @@
 	if (!empty($loaned_by_user_id)){
 		$userInfo = getRequest_query(["table"=>"users", "user_id"=>$loaned_by_user_id]);
 		$userFullName = $userInfo[0]["full_name"];
-		$userRecordLink = "recordPage.php?table=users&user_id={$loaned_by_user_id}";
+		$userRecordLink = "/libraryDb/recordPage.php?table=users&user_id={$loaned_by_user_id}";
 	} else{
 		$userInfo = "";
 		$userFullName = "";
