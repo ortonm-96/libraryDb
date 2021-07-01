@@ -13,6 +13,14 @@ $permission_level_names = [
 	"3" => "User"
 ];
 
+// The "Delete user" button usually has a permission level of 1. However, if the current user is the subject of the page, set it to 999 instead
+// Prevents the user from deleting their own account.
+if ($user_id == $_SESSION['userId']) {
+	$currentUserDeletePermission = "999";
+} else{
+	$currentUserDeletePermission = "1";
+}
+
 ?>
 <p class="pl-1">User page - <?php echo $full_name; ?></p>
 <form class="border mb-2 p-1" method="post">
@@ -45,9 +53,10 @@ $permission_level_names = [
 			<option value="3">User</option>
 		</select>
 	</div>
+	<!--<div class="input-group mb-3" permissionLevel="1">-->
 	<div class="input-group mb-3" permissionLevel="1">
-		<button permissionLevel="1" type="submit" role="button" class="btn btn-light" formaction="/libraryDb/post_handlers/updated_user.php">Update</button>
-		<button permissionLevel="1" type="submit" role="button" class="btn btn-light" formaction="/libraryDb/post_handlers/deleted_user.php">Delete</button>
+		<button type="submit" role="button" class="btn btn-light" formaction="/libraryDb/post_handlers/updated_user.php">Update</button>
+		<button permissionLevel="<?php echo "{$currentUserDeletePermission}";?>" type="submit" role="button" class="btn btn-light" formaction="/libraryDb/post_handlers/deleted_user.php">Delete</button>
 	</div>
 
 </form>
