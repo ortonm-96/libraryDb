@@ -52,21 +52,31 @@ $permission_level_names = [
 
 </form>
 
-<form class="border mb-2 p-1" method="post" permissionLevel="1">
-	<div class="input-group d-none">
-		<span class="input-group-text">ID</span>
-		<input required type="number" name="user_id" id="user_id" class="form-control" value=<?php echo "\"{$user_id}\""; ?>></input>
+<div class="border mb-2 p-1" permissionLevel="1">
+
+	<button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#passwordResetFormCollapse">
+	    Change user password
+	</button>
+
+	  <div class="collapse" id="passwordResetFormCollapse">
+  		<div class="card card-body">
+
+    		<form method="post" permissionLevel="1">
+				<div class="input-group d-none">
+					<span class="input-group-text">ID</span>
+					<input required type="number" name="user_id" id="user_id" class="form-control" value=<?php echo "\"{$user_id}\""; ?>></input>
+				</div>
+
+				<div class="input-group">
+					<span class="input-group-text">New password</span>
+					<input required type="password" name="new_password" id="new_password">
+					<button role="button" class="btn btn-danger" type="submit" formaction="/libraryDb/post_handlers/change_user_password.php">Change password</button>
+				</div>
+
+			</form>
+  		</div>
 	</div>
-
-	<div class="input-group">
-		<span class="input-group-text">New password</span>
-		<input required type="password" name="new_password" id="new_password">
-		<button role="button" class="btn btn-danger" type="submit" formaction="/libraryDb/post_handlers/change_user_password.php">Change password</button>
-	</div>
-	
-</form>
-
-
+</div>
 <!-- Display books on loan - construct a query similar to , then pass to table render function -->
 <div class="border mb-2 p-1">
 	<p class="pl-1">Books on loan</p>
