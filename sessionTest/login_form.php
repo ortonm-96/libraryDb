@@ -23,6 +23,7 @@ $queryResults = getRequest_query($queryParams);
 if (count($queryResults) == 1){
 	session_start();
 	$_SESSION['userId'] = $queryResults[0]["user_id"];
+	$_SESSION['userPermissionLevel'] = $queryResults[0]["permission_level"];
 	header("Refresh: 1.5; URL=../index.php");
 	echo "<p>Logged in successfully</p>";	
 } else {

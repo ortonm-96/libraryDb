@@ -6,10 +6,6 @@
 <?php include "../templates/bootstrapReqs.html";?>
 <?php include "../templates/navbar.html";?>
 <p>Login to continue</p>
-<!--
-<a class="nav-link btn btn-danger mx-2" href="/libraryDb/sessionTest/loginId1.php">Login as Molly Orton (staff, userId 1)</a>
-<a class="nav-link btn btn-danger mx-2" href="/libraryDb/sessionTest/loginId3.php">Login as Joe Bloggs (user, userId 3)</a>
--->
 
 <div class="float-left container border rounded">
      <form action="login_form.php" method="post">
