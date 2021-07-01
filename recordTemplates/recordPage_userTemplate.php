@@ -21,6 +21,14 @@ if ($user_id == $_SESSION['userId']) {
 	$currentUserDeletePermission = "1";
 }
 
+// Sets permission for the password update form. Usually only staff should be able to access this, but regular users viewing their own page should be able to reset their passwords too.
+if ($user_id == $_SESSION['userId'] and $_SESSION['userPermissionLevel'] == 3) {
+	$passwordUpdatePermission = "3";
+} else{
+	$passwordUpdatePermission = "1";
+}
+
+
 ?>
 <p class="pl-1">User page - <?php echo $full_name; ?></p>
 <form class="border mb-2 p-1" method="post">
@@ -61,7 +69,7 @@ if ($user_id == $_SESSION['userId']) {
 
 </form>
 
-<div class="border mb-2 p-1" permissionLevel="1">
+<div class="border mb-2 p-1" permissionLevel="<?php echo "{$passwordUpdatePermission}";?>">
 
 	<button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#passwordResetFormCollapse">
 	    Change user password
@@ -70,7 +78,7 @@ if ($user_id == $_SESSION['userId']) {
 	  <div class="collapse" id="passwordResetFormCollapse">
   		<div class="card card-body">
 
-    		<form method="post" permissionLevel="1">
+    		<form method="post">
 				<div class="input-group d-none">
 					<span class="input-group-text">ID</span>
 					<input required type="number" name="user_id" id="user_id" class="form-control" value=<?php echo "\"{$user_id}\""; ?>></input>
