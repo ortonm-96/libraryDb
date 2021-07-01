@@ -38,9 +38,9 @@ $permission_level_names = [
 	</div>
 
 	<div class="input-group mb-3" permissionLevel="1">
-		<span class="input-group-text" for="permission_level">Current role - <?php echo $permission_level_names[$user_permission_level]; ?></span>
+		<span class="input-group-text" for="permission_level">User role - <?php echo $permission_level_names[$user_permission_level]; ?></span>
 		<select class="form-select" name="permission_level" id="permission_level">
-			<option selected value="0">Set user role</option>
+			<option selected value="0">Change user role</option>
 			<option value="1">Staff</option>
 			<option value="3">User</option>
 		</select>
@@ -60,11 +60,12 @@ $permission_level_names = [
 
 	<div class="input-group">
 		<span class="input-group-text">New password</span>
-		<input type="password" name="new_password" id="new_password">
+		<input required type="password" name="new_password" id="new_password">
 		<button role="button" class="btn btn-danger" type="submit" formaction="/libraryDb/post_handlers/change_user_password.php">Change password</button>
 	</div>
 	
 </form>
+
 
 <!-- Display books on loan - construct a query similar to , then pass to table render function -->
 <div class="border mb-2 p-1">
