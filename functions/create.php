@@ -6,9 +6,9 @@ function postRequest_create($postRequest){
 
 	$statement = $pdo->prepare($sqlInsertStatement);
 	$statement->execute([
-		'isbn' => $_POST["isbn"],
-		'name' => $_POST["name"],
-		'description' => $_POST["description"]
+		'isbn' => $postRequest["isbn"],
+		'name' => $postRequest["name"],
+		'description' => $postRequest["description"]
 	]);
 
 	return $pdo->lastInsertId();
@@ -23,15 +23,17 @@ function postRequest_create_user($postRequest){
 	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
 	$sqlInsertStatement = 'INSERT INTO `users` (`first_name`, `last_name`, `username`, `password`) VALUES (:first_name, :last_name, :username, :password)';
 
+	$password_hashed = password_hash($postRequest["password"], PASSWORD_DEFAULT);
+
 	$statement = $pdo->prepare($sqlInsertStatement);
 	$statement->execute([
-		'first_name' => $_POST["first_name"],
-		'last_name' => $_POST["last_name"],
-		'username' => $_POST["username"],
-		'password' => $_POST["password"]
+		'first_name' => $postRequest["first_name"],
+		'last_name' => $postRequest["last_name"],
+		'username' => $postRequest["username"],
+		'password' => $password_hashed
 	]);
 
-	return $pdo->lastInsertId();
+	//return $pdo->lastInsertId();
 
 }
 

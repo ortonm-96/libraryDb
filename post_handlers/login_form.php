@@ -15,17 +15,35 @@ require_once "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/query.php";
 $queryParams = [
 	"table" => "users",
 	"username" => $_POST["username"] ?: "",
-	"password" => $_POST["password"] ?: ""
+	//"password" => $_POST["password"] ?: ""
 ];
 
 $queryResults = getRequest_query($queryParams);
 
+/*
 if (count($queryResults) == 1){
 	session_start();
 	$_SESSION['userId'] = $queryResults[0]["user_id"];
 	$_SESSION['userPermissionLevel'] = $queryResults[0]["permission_level"];
 	header("Refresh: 1.5; URL=/libraryDb/index.php");
 	echo "<p>Logged in successfully</p>";	
+} else {
+	 header("Refresh: 1.5; URL=/libraryDb/forms/sessionTest_login_prompt.php");
+	 echo "<p>Login failed</p>";	
+}
+*/
+
+if (count($queryResults) == 1){
+	if (password_verify($_POST["password"], $queryResults[0]["password"])) {
+		session_start();
+		$_SESSION['userId'] = $queryResults[0]["user_id"];
+		$_SESSION['userPermissionLevel'] = $queryResults[0]["permission_level"];
+		header("Refresh: 1.5; URL=/libraryDb/index.php");
+		echo "<p>Logged in successfully</p>";	
+	} else{
+		echo "incorrect password";
+	}
+	
 } else {
 	 header("Refresh: 1.5; URL=/libraryDb/forms/sessionTest_login_prompt.php");
 	 echo "<p>Login failed</p>";	
