@@ -2,13 +2,13 @@
      session_start();
 
 ?>
-<?php include "../templates/permissionBuffer_head.html";?>
-<?php include "../templates/bootstrapReqs.html";?>
-<?php include "../templates/navbar.html";?>
+<?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/permissionBuffer_head.html";?>
+<?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/bootstrapReqs.html";?>
+<?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/navbar.html";?>
 <p>Login to continue</p>
 
 <div class="float-left container border rounded">
-     <form action="login_form.php" method="post">
+     <form action="/libraryDb/post_handlers/login_form.php" method="post">
 
           <div class="my-2">
                <label for="username" class="form-label">Username:</label>
@@ -25,4 +25,4 @@
      </form>
 </div>
 
-<?php include "../templates/permissionBuffer_tail.html";?>
+<?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/permissionBuffer_tail.html";?>

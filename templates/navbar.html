@@ -36,7 +36,7 @@
         <a permissionlevel="3" class="nav-link btn btn-light" href="/libraryDb/view_overdue_books_currentUser.php">My overdue books</a>
       </div>
 
-     <a class="nav-link btn btn-danger mx-2" href="/libraryDb/sessionTest/logout.php">Logout</a>
+     <a class="nav-link btn btn-danger mx-2" href="/libraryDb/post_handlers/logout.php">Logout</a>
      <!-- If a user is logged in, show them the link to their page. Otherwise, display a "not logged in" message -->
      <?php 
       if (isset($_SESSION["userId"])){
