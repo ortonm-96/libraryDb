@@ -7,6 +7,13 @@ $first_name = $queryResults[0]["first_name"] ?: "";
 $last_name = $queryResults[0]["last_name"] ?: "";
 $username = $queryResults[0]["username"] ?: "";
 $full_name = $queryResults[0]["full_name"] ?: "";
+$user_permission_level = $queryResults[0]["permission_level"] ?: "";
+
+$permission_level_names = [
+	"1" => "Staff",
+	"3" => "User"
+];
+
 ?>
 <p>User page - <?php echo $full_name; ?></p>
 <form method="post">
@@ -29,6 +36,15 @@ $full_name = $queryResults[0]["full_name"] ?: "";
 	<div class="form-group">
 		<label for="username">Username</label>
 		<input type="text" name="username" id="username" class="form-control" value=<?php echo "\"{$username}\""; ?>></input>
+	</div>
+
+	<div class="form-group" permissionLevel="1">
+		<label for="permission_level">Current role - <?php echo $permission_level_names[$user_permission_level]; ?></label>
+		<select class="form-select" name="permission_level" id="permission_level">
+			<option selected value="0">Set user role</option>
+			<option value="1">Staff</option>
+			<option value="3">User</option>
+		</select>
 	</div>
 
 	<button permissionLevel="1" type="submit" role="button" class="btn btn-light" formaction="/libraryDb/post_handlers/updated_user.php">Update</button>

@@ -80,14 +80,19 @@ function postRequest_Update_User($postRequest){
 	// Updates the record to loan to the current user at the current date.
 	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
 	
-	$sqlStatement = "UPDATE users SET first_name = :first_name, last_name = :last_name, username = :username WHERE user_id = :user_id";
+	if (empty($postRequest["permission_level"])) {
+		$postRequest["permission_level"] = NULL;
+	}
 
+	$sqlStatement = "UPDATE users SET first_name = :first_name, last_name = :last_name, username = :username, permission_level = IFNULL(:permission_level, permission_level) WHERE user_id = :user_id"; 
+	
 	$statement = $pdo->prepare($sqlStatement);
 
 	$statement->execute([
 		'first_name' => $postRequest["first_name"],
 		'last_name' => $postRequest["last_name"],
 		'username' => $postRequest["username"],
+		'permission_level' => $postRequest["permission_level"],
 		'user_id' => $postRequest["user_id"]
 	]);
 	
