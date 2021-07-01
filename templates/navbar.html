@@ -34,13 +34,15 @@
         <a permissionlevel="3" class="nav-link btn btn-light" href="/libraryDb/forms/search_isbn.php">Advanced search</a>
         <a permissionlevel="3" class="nav-link btn btn-light" href="/libraryDb/view_loaned_books_currentUser.php">My books on loan</a>
         <a permissionlevel="3" class="nav-link btn btn-light" href="/libraryDb/view_overdue_books_currentUser.php">My overdue books</a>
+
+        <a class="nav-link btn btn-danger text-white mx-2" href="/libraryDb/post_handlers/logout.php">Logout</a>
+        <!-- If a user is logged in, show them the link to their page. Otherwise, display a "not logged in" message -->
+        <a permissionlevel="1" class='nav-link btn btn-outline-info text-dark' href='<?php echo "/librarydb/recordPage.php?table=users&user_id={$_SESSION["userId"]}"; ?>' >My profile</a>
+        <a permissionlevel="3" class='nav-link btn btn-outline-info text-dark' href='<?php echo "/librarydb/recordPage.php?table=users&user_id={$_SESSION["userId"]}"; ?>' >My profile</a>
+        <span permissionLevel="0" class="navbar-text text-dark">Not logged in</span>
       </div>
 
-     <a class="nav-link btn btn-danger mx-2" href="/libraryDb/post_handlers/logout.php">Logout</a>
-    <!-- If a user is logged in, show them the link to their page. Otherwise, display a "not logged in" message -->
-    <a permissionlevel="1" class='btn btn-light' href='<?php echo "/librarydb/recordPage.php?table=users&user_id={$_SESSION["userId"]}"; ?>' >My profile</a>
-    <a permissionlevel="3" class='btn btn-light' href='<?php echo "/librarydb/recordPage.php?table=users&user_id={$_SESSION["userId"]}"; ?>' >My profile</a>
-    <span permissionLevel="0" class="navbar-text">Not logged in</span>
+
     </div>
 
   </div>
