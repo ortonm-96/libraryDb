@@ -21,6 +21,7 @@ function postRequest_create($postRequest){
 
 function postRequest_create_user($postRequest){
 	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
+	
 	$sqlInsertStatement = 'INSERT INTO `users` (`first_name`, `last_name`, `username`, `password`) VALUES (:first_name, :last_name, :username, :password)';
 
 	$password_hashed = password_hash($postRequest["password"], PASSWORD_DEFAULT);

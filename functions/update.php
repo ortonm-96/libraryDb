@@ -76,8 +76,6 @@ function postRequest_Update_Books_setLoanDate($postRequest){
 }
 
 function postRequest_Update_User($postRequest){
-	// Called when the user clicks the "loan book" button.
-	// Updates the record to loan to the current user at the current date.
 	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
 	
 	if (empty($postRequest["permission_level"])) {
@@ -93,6 +91,25 @@ function postRequest_Update_User($postRequest){
 		'last_name' => $postRequest["last_name"],
 		'username' => $postRequest["username"],
 		'permission_level' => $postRequest["permission_level"],
+		'user_id' => $postRequest["user_id"]
+	]);
+	
+	$results = $statement->fetchAll();
+
+	return $results;
+
+}
+
+function postRequest_Update_User_changePassword($postRequest){
+	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
+
+	$newPwHash = password_hash($postRequest["new_password"], PASSWORD_DEFAULT);
+	$sqlStatement = "UPDATE users SET password = :newPwHash WHERE user_id = :user_id"; 
+	
+	$statement = $pdo->prepare($sqlStatement);
+
+	$statement->execute([
+		'newPwHash' => $newPwHash,
 		'user_id' => $postRequest["user_id"]
 	]);
 	

@@ -52,6 +52,20 @@ $permission_level_names = [
 
 </form>
 
+<form method="post" permissionLevel="1">
+	<div class="form-group d-none">
+		<label for="user_id">ID</label>
+		<input required type="number" name="user_id" id="user_id" class="form-control" value=<?php echo "\"{$user_id}\""; ?>></input>
+	</div>
+
+	<div class="form-group">
+		<label for="new_password">New password</label>
+		<input type="password" name="new_password" id="new_password">
+	</div>
+
+	<button role="button" class="btn btn-danger" type="submit" formaction="/libraryDb/post_handlers/change_user_password.php">Change password</button>
+</form>
+
 <!-- Display books on loan - construct a query similar to , then pass to table render function -->
 <p>Books on loan</p>
 <?php
