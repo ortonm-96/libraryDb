@@ -18,7 +18,8 @@
 
 	// Get the user's permission level (todo: 1st version just uses the User ID, later versions will have a proper permission field in the table), then construct and execute an XPath query.
 	// The query selects all elements in the document whose permissionlevel attribute doesn't match the user's. (todo: Consider other operators in later versions. Greater than/ less than might be useful features to have.)
-	//userPermissionLevel
+	// I also want to add some equivalent to "1 or 3". Currently if I want to have controlled content that can be seen by more than 1 role, I have to create a seperate element for each. Not would be a useful operator to have access to as well.
+	// If no permission level is set, use a default permission level of 0. This allows me the same content control for users who aren't logged in.
 	if (isset($_SESSION['userPermissionLevel'])){
 		$userPermissionLevel = $_SESSION['userPermissionLevel'];	
 	} else {

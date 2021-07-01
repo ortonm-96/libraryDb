@@ -33,7 +33,7 @@
 		}
 
 ?>
-<p class="pl-1">Book page template test</p>
+<p class="pl-1">Book information:</p>
 <img src=<?php echo "\"{$cover_image_filepath}\""; ?>>
 <form class="border mb-2 p-1" method="post" enctype="multipart/form-data">
 
