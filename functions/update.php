@@ -90,7 +90,7 @@ function postRequest_Update_User($postRequest){
 		$postRequest["permission_level"] = NULL;
 	}
 
-	$sqlStatement = "UPDATE users SET first_name = :first_name, last_name = :last_name, username = IFNULL(:username, username), permission_level = IFNULL(:permission_level, permission_level) WHERE user_id = :user_id"; 
+	$sqlStatement = "UPDATE users SET first_name = :first_name, last_name = :last_name, username = IFNULL(:username, username), permission_level = IFNULL(:permission_level, permission_level) WHERE id = :id"; 
 	
 	$statement = $pdo->prepare($sqlStatement);
 
@@ -99,7 +99,7 @@ function postRequest_Update_User($postRequest){
 		'last_name' => $postRequest["last_name"],
 		'username' => $postRequest["username"],
 		'permission_level' => $postRequest["permission_level"],
-		'user_id' => $postRequest["user_id"]
+		'id' => $postRequest["id"]
 	]);
 	
 	$results = $statement->fetchAll();
@@ -112,13 +112,13 @@ function postRequest_Update_User_changePassword($postRequest){
 	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
 
 	$newPwHash = password_hash($postRequest["new_password"], PASSWORD_DEFAULT);
-	$sqlStatement = "UPDATE users SET password = :newPwHash WHERE user_id = :user_id"; 
+	$sqlStatement = "UPDATE users SET password = :newPwHash WHERE id = :id"; 
 	
 	$statement = $pdo->prepare($sqlStatement);
 
 	$statement->execute([
 		'newPwHash' => $newPwHash,
-		'user_id' => $postRequest["user_id"]
+		'id' => $postRequest["id"]
 	]);
 	
 	$results = $statement->fetchAll();

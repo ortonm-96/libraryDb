@@ -37,8 +37,8 @@
 
         <a class="nav-link btn btn-danger text-white mx-2" href="/libraryDb/post_handlers/logout.php">Logout</a>
         <!-- If a user is logged in, show them the link to their page. Otherwise, display a "not logged in" message -->
-        <a permissionlevel="1" class='nav-link btn btn-outline-info text-dark' href='<?php echo "/librarydb/recordPage.php?table=users&user_id={$_SESSION["userId"]}"; ?>' >My profile</a>
-        <a permissionlevel="3" class='nav-link btn btn-outline-info text-dark' href='<?php echo "/librarydb/recordPage.php?table=users&user_id={$_SESSION["userId"]}"; ?>' >My profile</a>
+        <a permissionlevel="1" class='nav-link btn btn-outline-info text-dark' href='<?php echo "/librarydb/recordPage.php?table=users&id={$_SESSION["userId"]}"; ?>' >My profile</a>
+        <a permissionlevel="3" class='nav-link btn btn-outline-info text-dark' href='<?php echo "/librarydb/recordPage.php?table=users&id={$_SESSION["userId"]}"; ?>' >My profile</a>
         <span permissionLevel="0" class="navbar-text text-dark">Not logged in</span>
       </div>
 

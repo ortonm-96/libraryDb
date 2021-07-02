@@ -34,7 +34,7 @@ function postRequest_create_user($postRequest){
 		'password' => $password_hashed
 	]);
 
-	//return $pdo->lastInsertId();
+	return $pdo->lastInsertId();
 
 }
 

@@ -36,7 +36,7 @@ if (count($queryResults) == 1){
 if (count($queryResults) == 1){
 	if (password_verify($_POST["password"], $queryResults[0]["password"])) {
 		session_start();
-		$_SESSION['userId'] = $queryResults[0]["user_id"];
+		$_SESSION['userId'] = $queryResults[0]["id"];
 		$_SESSION['userPermissionLevel'] = $queryResults[0]["permission_level"];
 		header("Refresh: 1.5; URL=/libraryDb/index.php");
 		echo "<p>Logged in successfully</p>";	

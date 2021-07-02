@@ -18,11 +18,11 @@ function postRequest_Delete_fromBooks($postRequest){
 function postRequest_Delete_fromUsers($postRequest){
 	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
 
-	$sqlStatement = "DELETE FROM users WHERE user_id = :user_id";
+	$sqlStatement = "DELETE FROM users WHERE id = :id";
 
 	$statement = $pdo->prepare($sqlStatement);
 
-	$statement->execute(["user_id" => $postRequest["user_id"]]);
+	$statement->execute(["id" => $postRequest["id"]]);
 	
 	$results = $statement->fetchAll();
 

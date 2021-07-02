@@ -1,7 +1,7 @@
 <?php
 require_once "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/showtable_books.php";
 
-$user_id = $queryResults[0]["user_id"] ?: "";
+$user_id = $queryResults[0]["id"] ?: "";
 $first_name = $queryResults[0]["first_name"] ?: "";
 $last_name = $queryResults[0]["last_name"] ?: "";
 $username = $queryResults[0]["username"] ?: "";
@@ -35,7 +35,7 @@ if ($user_id == $_SESSION['userId'] and $_SESSION['userPermissionLevel'] == 3) {
 
 	<div permissionLevel="<?php echo "{$updatePermission_staffOrOwnRecord}";?>" class="input-group d-none">
 		<span class="input-group-text">ID</span>
-		<input required type="number" name="user_id" id="user_id" class="form-control" value=<?php echo "\"{$user_id}\""; ?>></input>
+		<input required type="number" name="id" id="id" class="form-control" value=<?php echo "\"{$user_id}\""; ?>></input>
 	</div>
 
 	<div class="input-group mb-3">
@@ -82,7 +82,7 @@ if ($user_id == $_SESSION['userId'] and $_SESSION['userPermissionLevel'] == 3) {
     		<form method="post">
 				<div class="input-group d-none">
 					<span class="input-group-text">ID</span>
-					<input required type="number" name="user_id" id="user_id" class="form-control" value=<?php echo "\"{$user_id}\""; ?>></input>
+					<input required type="number" name="id" id="id" class="form-control" value=<?php echo "\"{$user_id}\""; ?>></input>
 				</div>
 
 				<div class="input-group">

@@ -16,10 +16,10 @@
 
 		$usersTable = getUsers();
 		$headerRow = [
-			["user_id", "ID"],
+			["id", "ID"],
 			["full_name", "Name"]
 		];
-		$usersTableFormatted = formatRecordsAsTable($usersTable, $headerRow, "users", "user_id");
+		$usersTableFormatted = formatRecordsAsTable($usersTable, $headerRow, "users", "id");
 		echo $usersTableFormatted;
 	?>
 	</div>
