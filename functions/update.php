@@ -76,13 +76,21 @@ function postRequest_Update_Books_setLoanDate($postRequest){
 }
 
 function postRequest_Update_User($postRequest){
+
 	require "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/config.php";
-	
+
+	// It's possible for the post request to be missing the following 2 fields (username because users updating their own record shouldn't have access to it,
+	// permission level for the same reason, and also if staff users don't select anything from the dropdown menu)
+	// If the fields are empty/missing, set them to null instead (IFNULL in the sql statement means the existing values will be used instead)
+	if (empty($postRequest["username"])) {
+		$postRequest["username"] = NULL;
+	}
+
 	if (empty($postRequest["permission_level"])) {
 		$postRequest["permission_level"] = NULL;
 	}
 
-	$sqlStatement = "UPDATE users SET first_name = :first_name, last_name = :last_name, username = :username, permission_level = IFNULL(:permission_level, permission_level) WHERE user_id = :user_id"; 
+	$sqlStatement = "UPDATE users SET first_name = :first_name, last_name = :last_name, username = IFNULL(:username, username), permission_level = IFNULL(:permission_level, permission_level) WHERE user_id = :user_id"; 
 	
 	$statement = $pdo->prepare($sqlStatement);
 

@@ -23,9 +23,9 @@ if ($user_id == $_SESSION['userId']) {
 
 // Sets permission for the password update form. Usually only staff should be able to access this, but regular users viewing their own page should be able to reset their passwords too.
 if ($user_id == $_SESSION['userId'] and $_SESSION['userPermissionLevel'] == 3) {
-	$passwordUpdatePermission = "3";
+	$updatePermission_staffOrOwnRecord = "3";
 } else{
-	$passwordUpdatePermission = "1";
+	$updatePermission_staffOrOwnRecord = "1";
 }
 
 
@@ -33,7 +33,7 @@ if ($user_id == $_SESSION['userId'] and $_SESSION['userPermissionLevel'] == 3) {
 <p class="pl-1">User page - <?php echo $full_name; ?></p>
 <form class="border mb-2 p-1" method="post">
 
-	<div permissionLevel="1" class="input-group d-none">
+	<div permissionLevel="<?php echo "{$updatePermission_staffOrOwnRecord}";?>" class="input-group d-none">
 		<span class="input-group-text">ID</span>
 		<input required type="number" name="user_id" id="user_id" class="form-control" value=<?php echo "\"{$user_id}\""; ?>></input>
 	</div>
@@ -50,7 +50,8 @@ if ($user_id == $_SESSION['userId'] and $_SESSION['userPermissionLevel'] == 3) {
 
 	<div class="input-group mb-3">
 		<span class="input-group-text" for="username">Username</span>
-		<input type="text" name="username" id="username" class="form-control" value=<?php echo "\"{$username}\""; ?>></input>
+		<input permissionLevel="1" type="text" name="username" id="username" class="form-control" value=<?php echo "\"{$username}\""; ?>></input>
+		<input disabled readonly permissionLevel="3" type="text" name="username" id="username" class="form-control" value=<?php echo "\"{$username}\""; ?>></input>
 	</div>
 
 	<div class="input-group mb-3" permissionLevel="1">
@@ -61,15 +62,15 @@ if ($user_id == $_SESSION['userId'] and $_SESSION['userPermissionLevel'] == 3) {
 			<option value="3">User</option>
 		</select>
 	</div>
-	<!--<div class="input-group mb-3" permissionLevel="1">-->
-	<div class="input-group mb-3" permissionLevel="1">
+	
+	<div class="input-group mb-3" permissionLevel="<?php echo "{$updatePermission_staffOrOwnRecord}";?>">
 		<button type="submit" role="button" class="btn btn-light" formaction="/libraryDb/post_handlers/updated_user.php">Update</button>
 		<button permissionLevel="<?php echo "{$currentUserDeletePermission}";?>" type="submit" role="button" class="btn btn-light" formaction="/libraryDb/post_handlers/deleted_user.php">Delete</button>
 	</div>
 
 </form>
 
-<div class="border mb-2 p-1" permissionLevel="<?php echo "{$passwordUpdatePermission}";?>">
+<div class="border mb-2 p-1" permissionLevel="<?php echo "{$updatePermission_staffOrOwnRecord}";?>">
 
 	<button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#passwordResetFormCollapse">
 	    Change user password

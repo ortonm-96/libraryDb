@@ -4,7 +4,6 @@
 <?php include "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/templates/navbar.html";?>
 <?php
 	require_once "{$_SERVER["DOCUMENT_ROOT"]}/libraryDb/functions/update.php";
-
 	$results = postRequest_Update_User($_POST);
 	header("Refresh: 1.5; URL= {$_SERVER["HTTP_REFERER"]}");
 ?>
